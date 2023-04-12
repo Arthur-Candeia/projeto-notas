@@ -20,13 +20,33 @@ main > div {
   display: inline-block;
   min-width: 100px;
   max-width: 300px;
+  max-height: 200px;
+  overflow-x: hidden;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-size: contain;
+}
+
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background-color: #99c5b5;
+  border-radius: 10px;
+}
+
+div::-webkit-scrollbar-track {
+  background-color: #26547c;
+  border-radius: 5px;
 }
 
 p {
   display: inline-block;
   min-width: 100px;
   max-width: 300px;
-  background-color: lightblue;
-  margin: 5px 5px 5px 0;
+  padding: 5px 5px 5px 0;
   padding: 10px;
+  background-color: lightblue;
 }

@@ -8,10 +8,10 @@ if (localStorage.nota) {
 function enviar() {
   if (notaEscrita.value !== '') {
     if (localStorage.nota) {
-      localStorage.nota += '<div>' + '<p>' + notaEscrita.value + '</p>' + '</div>'
+      localStorage.nota += '<div>' + '<pre>' + '<p>' + notaEscrita.value + '</p>' + '</pre>' + '</div>'
     }
     else{
-      localStorage.nota = '<div>' + '<p>' + notaEscrita.value + '</p>' + '</div>'
+      localStorage.nota = '<div>'+ '<pre>' + '<p>' + notaEscrita.value + '</p>' + '</pre>' + '</div>'
     }
     main.innerHTML = localStorage.nota;
   }
