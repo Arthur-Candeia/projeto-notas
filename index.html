@@ -4,16 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <title>NOTAS</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <h1>NOTAS</h1>
-  <input type="text" name="novaNota" id="novaNota" oninput="newNote()">
-  <input type="submit" value="ENVIAR" onclick="enviar()">
-  <button onclick="agora()">CLEAR</button>
-  <div  id="container">
-  </div>
-  <p></p>
-  <script src="script.js"></script>
+  <header>
+    <h1>NOTAS</h1>
+    <aside>
+      <textarea name="novaNota" id="novaNota" cols="30" rows="10" oninput="newNote()"></textarea> <br>
+      <div>
+        <input type="submit" value="ENVIAR" onclick="enviar()">
+        <button onclick="agora()">CLEAR</button>
+      </div>
+    </aside>
+  </header>
+
+  <main id="container"></main>
+  <script src="scripts/script.js"></script>
 </body>
 </html>

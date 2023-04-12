@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+header > aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > div {
+  display: inline-block;
+  min-width: 100px;
+  max-width: 300px;
+}
+
+p {
+  display: inline-block;
+  min-width: 100px;
+  max-width: 300px;
+  background-color: lightblue;
+  margin: 5px 5px 5px 0;
+  padding: 10px;
+}
