@@ -8,15 +8,19 @@
   <title>NOTAS</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body class="isLight">
   <header>
-    <h1>NOTAS</h1>
+    <aside id="topo">
+      <h1>SUAS NOTAS</h1>
+      <button id="modoFundo">Modo escuro</button>
+    </aside>
     <aside>
-      <textarea name="novaNota" id="novaNota" cols="30" rows="10" oninput="newNote()"></textarea> <br>
+      <h2>Nova nota</h2>
+      <textarea name="novaNota" id="novaNota" cols="30" rows="10" autofocus style="background-color: var(--creme);"></textarea> <br>
       <div>
-        <input type="submit" value="ENVIAR" onclick="enviar()">
-        <button onclick="agora()">CLEAR</button>
-        <input type="color" name="corNota" id="corNota" oninput="corteste()">
+        <input type="submit" class="inputs" value="ENVIAR" onclick="enviar()">
+        <button onclick="limpar()" class="inputs">CLEAR</button>
+        <input type="color" name="corNota" id="corNota" class="inputs" oninput="corTextarea()" value="#F5EBE0">
       </div>
     </aside>
   </header>

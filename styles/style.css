@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 * {
   margin: 0;
@@ -6,8 +7,43 @@
   box-sizing: border-box;
 }
 
+:root {
+  --gelo: #EDEDE9;
+  --creme: #F5EBE0;
+  --marromClaro: #E3D5CA;
+  --marromMedio: #D6CCC2;
+  --marromEscuro: #D5BDAF;
+}
+
 body {
   padding: 20px;
+}
+
+.isLight {
+  background-color: var(--gelo);
+  color: black;
+}
+
+.isDark {
+  background-color: #111111;
+  color: var(--gelo);
+}
+
+header > #topo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 100px;
+}
+
+header > #topo >  h1 {
+  width: 220px;
+  font: bold 2em 'Open Sans';
+  background-color: #444;
+  color: var(--marromClaro);
+  border-radius: 5px;
+  text-align: center;
+  
 }
 
 header > aside {
@@ -16,15 +52,43 @@ header > aside {
   align-items: center;
 }
 
+header > aside > h2 {
+  font: bold 1em 'Open Sans';
+}
+
+header > aside > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+textarea {
+  background-color: var(--creme);
+}
+
+.inputs {
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+input[type="color"] {
+  border: none;
+  outline: none;
+  height: 38px;
+  padding: 0;
+}
+
 main > div {
+  position: relative;
   display: inline-block;
-  min-width: 100px;
-  max-width: 300px;
+  min-width: 120px;
+  max-width: 100vw;
   max-height: 200px;
   overflow-x: hidden;
   margin-left: 10px;
   margin-bottom: 10px;
-  background-size: contain;
 }
 
 div::-webkit-scrollbar {
@@ -33,20 +97,47 @@ div::-webkit-scrollbar {
 }
 
 div::-webkit-scrollbar-thumb {
-  background-color: #99c5b5;
+  background-color: var(--marromClaro);
   border-radius: 10px;
 }
 
 div::-webkit-scrollbar-track {
-  background-color: #26547c;
+  background-color: var(--marromEscuro);
   border-radius: 5px;
 }
 
 p {
   display: inline-block;
-  min-width: 100px;
-  max-width: 300px;
+  min-width: 120px;
+  max-width: 95vw;
   padding: 5px 5px 5px 0;
   padding: 10px;
-  
+  border-radius: 5px;
+  padding-right: 18px;
+}
+
+pre {
+  display: inline;
+  min-width: 80px;
+  max-width: 300px;
+}
+
+#container > div > button {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  width: 18px;
+  padding: 1px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: red;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#container > div > button:hover {
+  border-radius: 3px;
+  background-color: darkgray;
 }
