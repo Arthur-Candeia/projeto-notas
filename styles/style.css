@@ -33,17 +33,39 @@ header > #topo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: 100px;
+  gap: 20px;
 }
 
 header > #topo >  h1 {
-  width: 220px;
-  font: bold 2em 'Open Sans';
+  width: 150px;
+  font: bold 1.4em 'Open Sans';
   background-color: #444;
   color: var(--marromClaro);
   border-radius: 5px;
   text-align: center;
-  
+}
+
+header > #topo > article {
+  font: 500 0.8em 'Open Sans';
+}
+
+header > #topo > article > span {
+  display: inline-block;
+  background-color: darkgray;
+  width: 42px;
+  padding: 1px 3px;
+  border-radius: 30%;
+  cursor: pointer;
+}
+
+header > #topo button {
+  background-color: white;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  padding-right: 10px;
+  border: 2px solid #111;
+  cursor: pointer;
 }
 
 header > aside {
@@ -140,4 +162,39 @@ pre {
 #container > div > button:hover {
   border-radius: 3px;
   background-color: darkgray;
+}
+
+@keyframes onModoEscuro {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: 11px;
+  }
+  100% {
+    margin-left: 22px;
+  }
+}
+@keyframes offModoEscuro {
+  0% {
+    margin-left: 22px;
+  }
+  50% {
+    margin-left: 11px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  header > #topo {
+    gap: 0px;
+    padding-right: 100px;
+  }
+
+  header > #topo >  h1 {
+    width: 220px;
+    font: bold 2em 'Open Sans';
+  }
 }

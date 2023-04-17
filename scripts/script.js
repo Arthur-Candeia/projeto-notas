@@ -2,16 +2,19 @@ let notaEscrita = document.getElementById('novaNota')
 let corDaNota = document.getElementById('corNota')
 let main = document.getElementById('container')
 let modoFundo = document.getElementById('modoFundo')
-let valor = 0
+let botaoModoFundo = document.getElementById('botaoModoFundo');
 
 if (localStorage.fundo == undefined) { //COR DE FUNDO
   localStorage.fundo = 'isLight'
+  localStorage.valor = 0
 }
 document.body.className = String(localStorage.fundo)
+let valor = localStorage.valor
 if (document.body.className == 'isDark') {
   notaEscrita.style.backgroundColor = 'var(--marromEscuro)'
   notaEscrita.style.color = 'var(--gelo)'
   corDaNota.value = '#D5BDAF'
+  botaoModoFundo.style.marginLeft = '22px'
 }
 else {
   notaEscrita.className == 'isLight'
@@ -41,7 +44,7 @@ function enviar() {//ENVIAR NOVA NOTA
     }
     main.innerHTML = localStorage.nota
     valor++
-
+    localStorage.valor = valor
     if (localStorage.corNote) {//salvando cores
       let arrayCoresJson = localStorage.corNote //joga o localstorage pra dentro de um json
       let arrayCores = JSON.parse(arrayCoresJson) //transforma o json em array
@@ -80,10 +83,21 @@ function corTextarea() {
 }
 
 function limpar() {//botao clear
-  localStorage.removeItem('nota')
-  localStorage.removeItem('corNote')
-  localStorage.removeItem('fundo')
-  location.reload()
+  let confirmar;
+  if (localStorage.nota) {
+    confirmar = confirm('Deseja EXCLUIR PERMANENTEMENTE todas as notas salvas?')
+  }
+  else {
+    alert('Não há notas salvas.')
+  }
+
+  if (confirmar) {
+    localStorage.removeItem('nota')
+    localStorage.removeItem('corNote')
+    localStorage.removeItem('fundo')
+    localStorage.removeItem('valor')
+    location.reload()
+  }
 }
 
 function removerNota(teste, fe) {//remover nota individual
@@ -120,10 +134,12 @@ modoFundo.addEventListener('click', function() {//botao modo fundo
     notaEscrita.style.backgroundColor = 'var(--marromEscuro)'
     corDaNota.value = '#D5BDAF'
     localStorage.fundo = 'isDark'
+    botaoModoFundo.style.animation = 'onModoEscuro 0.3s ease-in-out forwards'
   }
   else {
     notaEscrita.style.backgroundColor = 'var(--creme)'
     corDaNota.value = '#F5EBE0'
     localStorage.fundo = 'isLight'
+    botaoModoFundo.style.animation = 'offModoEscuro 0.3s ease-in-out forwards'
   }
 })
