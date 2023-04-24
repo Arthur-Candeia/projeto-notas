@@ -22,13 +22,19 @@ else {
   corDaNota.value = '#F5EBE0'
 }
 
+
+
 if (localStorage.nota) { //carregamento
   main.innerHTML = localStorage.nota;
+  for (let i = 0; i < Number(localStorage.valor); i++) {
+    if (document.getElementById(i)) {
+      document.getElementById(i).style.animation = '' //remove animação
+    }
+  }
   let arrayCoresJson = localStorage.corNote
   let arrayCores = JSON.parse(arrayCoresJson)
   let arrayCoresCarregar = Object.values(arrayCores)
   let corNotasExibidas = document.querySelectorAll('p')
-
   for (let i = 0; i < arrayCoresCarregar.length; i++) {
     corNotasExibidas[i].style.backgroundColor = arrayCoresCarregar[i];
   }
@@ -37,12 +43,18 @@ if (localStorage.nota) { //carregamento
 function enviar() {//ENVIAR NOVA NOTA
   if (notaEscrita.value !== '') {
     if (localStorage.nota) {
-      localStorage.nota += '<div id="' + valor + '">' + '<pre>' + '<p>' + notaEscrita.value + '</p>' + '</pre>' + '<button onclick="removerNota(this.parentNode,' + valor + ')">X' + '</button>' + '</div>'
+      localStorage.nota += '<div id="' + valor + '" style="animation: adicionar 0.2s forwards ease-in-out;">' + '<pre>' + '<p>' + notaEscrita.value + '</p>' + '</pre>' + '<button onclick="removerNota(this.parentNode,' + valor + ')">X' + '</button>' + '</div>'
     }
     else{
-      localStorage.nota = '<div id="' + valor + '">' + '<pre>' + '<p>' + notaEscrita.value + '</p>' + '</pre>' + '<button onclick="removerNota(this.parentNode,' + valor + ')">X' + '</button>' + '</div>'
+      localStorage.nota = '<div id="' + valor + '" style="animation: adicionar 0.2s forwards ease-in-out;">' + '<pre>' + '<p>' + notaEscrita.value + '</p>' + '</pre>' + '<button onclick="removerNota(this.parentNode,' + valor + ')">X' + '</button>' + '</div>'
     }
     main.innerHTML = localStorage.nota
+    for (let i = 0; i < Number(localStorage.valor); i++) {
+      if (document.getElementById(i)) {
+        document.getElementById(i).style.animation = '' //remove animação
+      }
+    }
+
     valor++
     localStorage.valor = valor
     if (localStorage.corNote) {//salvando cores
